@@ -1,0 +1,30 @@
+<html>
+    <head>
+<title>Looping</title>
+    </head>
+    <body>
+        <script>
+            let factorial =1;
+            let n=5;
+            i=1;
+            do{
+                factorial*=i;
+                i++;
+            }while(i<=n);
+            console.log("Factorial of 5 is: ",+factorial);
+
+            console.log("Fibonnaci series using for loop");
+            let a=0,b=1,c;
+            let count=10;
+            for(let i=3;i<=count;i++)
+            {
+                c=a+b;
+                a=b;
+                b=c;
+                console.log(c);
+            }
+            
+            
+        </script>
+    </body>
+</html>
