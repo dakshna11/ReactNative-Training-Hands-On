@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Copying arrays</title>
+    </head>
+    <body>
+        <h3>Copying arrays</h3>
+    
+    <script>
+        let prices = new Array(10,20,30,40,60);
+        let shallowCopy = prices;
+        console.log("Before changing = \n",prices);
+        shallowCopy[0]=70;
+        console.log("After changing = \n",prices);
+
+        let deepCopy = prices.slice();
+        console.log("Before deepCopy = \n",prices);
+        deepCopy[0]="JavaScript";
+        console.log("After deepCopy = \n", prices);
+        console.log("elements in deepCopy = \n",deepCopy);
+
+        prices.push(100);
+        console.log(prices);
+
+        prices.unshift(0);
+        console.log(prices);
+
+        prices.pop();
+        console.log(prices);
+
+        prices.shift();
+        console.log(prices);
+
+        let dogBreeds = ['Labrador', 'Beagle', 'Golden Retriever', 
+                        'Doberman', 'German Shepherd', 'Boxer'];
+        console.log(dogBreeds);
+        dogBreeds.splice(3,0,'Poodle','Dalmatian');
+        console.log("After adding = ",dogBreeds);
+
+        dogBreeds.splice(1,2,'Indi');
+        console.log("After changing : ",dogBreeds);
+
+        let sliceofDogBreeds = dogBreeds.slice(3);
+        console.log(sliceofDogBreeds);
+        sliceofDogBreeds = dogBreeds.slice(-3,-1);
+        console.log(sliceofDogBreeds);
+
+
+
+        </script>
+    </body>
+</html>

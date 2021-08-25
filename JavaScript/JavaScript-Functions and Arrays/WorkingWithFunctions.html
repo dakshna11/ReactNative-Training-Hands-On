@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Working with Functions</title>
+    </head>
+    <body>
+        <h1>Working with Functions</h1>
+        <script>
+            function mphToKmph(mph){
+                console.log("MPH value entered : ",mph);
+                return 1.61*mph;
+            }
+            let speedLimit = mphToKmph(65);
+            console.log("Speed limit in Km/h : ",speedLimit);
+
+            let mphToKmphArrow = mph => {
+                console.log("MPH value entered : ",mph);
+                return 1.61*mph;
+            }
+            speedLimit = mphToKmphArrow(65);
+            console.log("Speed limit in Km/h (arrow) : ",speedLimit);
+
+            let mphToKmphImplicit = mph => 1.61*mph;
+            speedLimit = mphToKmphImplicit(65);
+            console.log("Speed limit in Km/h (Implicit return) : ",speedLimit);
+
+            let triangleArea = (base,height) => 0.5*base*height;
+            console.log("Area of triangle with base 5 and height 4: ",triangleArea(5,4));
+
+            let functionCopy = triangleArea;
+            console.log("Area of Triangle with base 8 and height 14: ",functionCopy(8,14));
+
+            var x=function(f){return 5*(f-32)/9};
+            console.log("50F in celsius is: ",x(50));
+
+
+
+        </script>
+    </body>
+</html>

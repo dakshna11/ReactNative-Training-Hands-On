@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>JS Errors</title>
+    </head>
+    <body>
+        <h1>JavaScript Error handling</h1>
+        <p>Enter a number</p>
+        <input id="num" type="text">
+        <br />
+        <button type="button" onclick="isEven()">Test Input</button>
+        <script>
+            try{
+                //document.write("Welcome guest!");
+                //document.write(Null);
+                console.log("No error");
+            }
+            catch(err){
+                console.log(err.message);
+            }
+
+            function isEven(){
+                var a;
+                a=document.getElementById("num").value;
+
+                try{
+                    if(a%2==0){
+                        console.log("The entered number is even");
+                    }
+                    else{
+                        throw "not an even number";
+                    }
+                }
+                catch(msg){
+                    console.log("The entered value is "+msg);
+                }
+                finally{
+                    console.log("Successfully exceuted");
+                }
+            }
+        </script>
+    </body>
+</html>

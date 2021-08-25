@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <title>Conditional and loops </title>
+    </head>
+    <body>
+        <h3 id="old">JavaScript loops </h3>
+        <p id="p1"></p>
+        <script>
+            let a=10;
+            if(a==10){
+                document.write(a);
+            }
+            let p1=document.getElementById("p1");
+            let myArray = [
+                'apple','bananas','pears','plums'
+            ];
+            let i=0;
+            while(i<myArray.length){
+                p1.innerHTML +="<br>Fruit "+(i)+" is "+myArray[i];
+                i++;
+            }
+            for(let i of myArray){
+                p1.innerHTML += "<br>Fruit is " + i;
+            }
+
+            function myFruits(value, index,ar){
+                p1.innerHTML += "<br>Fruit " + (index+1) + " is " + value;
+            };
+            myArray.forEach(myFruits);
+        </script>
+    </body>
+</html>

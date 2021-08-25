@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Local Scope</title>
+    </head>
+    <body>
+        <h1>Local Scope</h1>
+        <script>
+            let globalLet = "Global variable declared with let";
+            var globalVar = "Global variable declared with var";
+
+            let numLet = 10;
+            var numVar = 20;
+            const numConst = 30;
+
+            function firstFunction(){
+                let localLet = "This is a local variable declared with let"
+                var localVar = "This is a local variable declared with var";
+                undeclaredLocalVar = "This is a undeclared variable"
+
+                console.log("globalLet : ",globalLet);
+                console.log("globleVar : ",globalVar);
+                console.log("numLet : ",numLet);
+                console.log("numVar : ",numVar);
+                console.log("NUM_CONST : ",numConst);
+
+            }
+            firstFunction();
+            //console.log("Accessing localLet : ",localLet);
+            console.log("Accessing Undeclared : ",undeclaredLocalVar);
+
+            function secondFunction(){
+                let numLet = 100;
+                var numVar = 200;
+
+
+                console.log(numLet);
+                console.log(numVar);
+            }
+            secondFunction();
+            console.log("numLet after invoking in secondFunction : ",numLet);
+            console.log("numVar after invoking in secondFunction : ",numVar);
+            console.log("NUM_CONST after invoking in secondFunction : ",numConst);
+
+            function thirdFunction(){
+                numLet = 1000;
+                numVar = 2000;
+                console.log(numVar);
+                console.log(numLet);
+
+            }
+            thirdFunction();
+            console.log("numVar accessing after thirdFunction: ",numVar);
+            console.log("numLet accessing after thirdFunction: ",numLet);
+            
+            function fourthFunction(){
+                console.log("First loop")
+                for(let i=0;i<10;i++)
+                {
+                    console.log(i);
+                }
+                //console.log(i);
+                console.log("Second Loop");
+                for(var j=0;j<10;j++)
+                {
+                    console.log(j);
+                }
+                console.log("Value after for loop",j);
+
+            }
+            fourthFunction();
+            //console.log(j);
+
+
+
+        </script>
+    </body>
+</html>

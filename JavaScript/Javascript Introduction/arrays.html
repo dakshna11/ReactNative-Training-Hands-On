@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <title>Arrays</title>
+    </head>
+    <body>
+        <script>
+            let studentGrades = ["A","B",3,"D",5];
+            console.log("Length : "+studentGrades.length);
+            console.log("Element at index 3: "+studentGrades[3]);
+            console.log("Element at index -3: "+studentGrades[-3]);
+
+            console.log("Iterating over elements \n");
+            var i;
+            for(i=0;i<studentGrades.length;i++)
+            {
+                console.log(studentGrades[i]);
+            }
+
+            console.log("Iterating over elements with ES6 syntax \n");
+            for(i of studentGrades){
+                console.log(i);
+            }
+
+            console.log("Elements in vowels: ");
+            let vowels = new Array("A","E","I","O","U");
+            for(i of vowels){
+                console.log(i);
+            }
+
+            let grades=[];
+            grades[0] = "A";
+            grades[1] = "B";
+            grades[2] = "C";
+            grades[3] = "D";
+            grades[4] = "E";
+            grades[7] = "H";
+
+            console.log("length: ",grades.length);
+            for(i of grades){
+                console.log(i);
+            }
+            console.log(`values at inedx 5 and 6: ${grades[5]} and ${grades[6]}`)
+
+            let testScores = [43,89,75,45,66,81];
+            function goodScore(score){
+                if(score>70){
+                    console.log(`The score ${score} is good`);
+                }
+            }
+            testScores.forEach(goodScore);
+        </script>
+    </body>
+</html>

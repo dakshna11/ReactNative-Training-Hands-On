@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Rest Parameter</title>
+    </head>
+    <body>
+        <h3>Rest Parameter</h3>
+        <script>
+            let add;
+            function sum(...nums){
+                add=0;
+                for(var num of nums){
+                    add+=num;
+
+                }
+                return add;
+            }
+            let addition = sum(1,2,3,4);
+            console.log(addition);
+
+            function studentDetails(name,...courses){
+                console.log("The name of student is "+name);
+                for(let sub=0;sub<courses.length;sub++){
+                    console.log(courses[sub]);
+                }
+            }
+            studentDetails("Chris","JavaScript","Python","Scala");
+        </script>
+    </body>
+</html>

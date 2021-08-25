@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Concatenating arrays</title>
+    </head>
+    <body>
+        <h3>Concatenating arrays</h3>
+    
+    <script>
+        let europeOffices = ['Bucharest','Prague','Rome'];
+        let africaOffices = ['Durban', 'Nairobi'];
+        let oceaniaOffices = ['Christchruch','Sydney'];
+
+        let southernOffices = africaOffices.concat(oceaniaOffices);
+        console.log("SouthernOffices : ",southernOffices);
+
+        let allOffices = africaOffices.concat(oceaniaOffices,europeOffices);
+        console.log("allOffices : ",allOffices);
+
+        let sortedOffices = allOffices.sort();
+        console.log("After sorting : ",sortedOffices);
+        console.log("Original allOffices array : ",allOffices);
+
+        console.log("Reversing array : ",allOffices.reverse());
+
+        let num = [20,10,3,35,40];
+        console.log(num.sort());
+
+        num.sort(function(a,b){return a-b});
+        console.log("Sorting numbers using compare funtions : ",num);
+
+        num.sort(function(a,b){return b-a});
+        console.log("Reverse sorting numbers using compare funtions : ",num);
+
+
+    </script>
+    </body>
+   </html> 
