@@ -1,0 +1,57 @@
+<html>
+    <head>
+        <title>Instance</title>
+    </head>
+    <body>
+        <h3>Instance</h3>
+        <script>
+            class Vehicle{
+                constructor(make,model,price){
+                    this.make=make;
+                    this.model=model;
+                    this.price=price
+                }
+            }
+           /* let myCar = new Vehicle("Toyota","GTI",29000)
+            let yourCar=JSON.parse(JSON.stringify(myCar))
+            let herCar = {...myCar}
+            let hisCar = Object.create(myCar)
+            console.log("Is myCar a Vehicle? ",myCar instanceof Vehicle)
+            console.log("Is yourCar (deep copy) a Vehicle? ",yourCar instanceof Vehicle)
+            console.log("Is herCar is Vehicle? ",herCar instanceof Vehicle)
+            console.log("Is hisCar a Vehicle? ",hisCar instanceof Vehicle)
+
+            console.log("Type of myCar: ",typeof myCar)
+            console.log("Type of yourCar: ",typeof yourCar)
+            console.log("Type of hisCar: ",typeof hisCar)
+            console.log("Type of herCar: ",typeof herCar)
+
+            console.log("myCar ",myCar)
+            console.log("yourCar ",yourCar)
+            console.log("hisCar ",hisCar)
+            console.log("herCar ",herCar) */
+
+            class MotorCycle extends Vehicle {
+                constructor(make,model,price,seatHeight){
+                    super(make,model,price);
+                    this.seatHeight=seatHeight;
+            }
+        }
+        let myBike = new MotorCycle("Ducati","Monster",10000)
+        console.log("Is myBike a MotorCycle? ",myBike instanceof MotorCycle)
+        console.log("Is myBike a Vehicle? ",myBike instanceof Vehicle)
+
+        function city(name,area,population){
+            this.name=name
+            this.area=area
+            this.population=population
+        }
+        let myCity = new city("Bangalore",800,90000)
+        console.log("Is myCity a city? ",myCity instanceof city)
+
+
+
+
+        </script>
+    </body>
+</html>   

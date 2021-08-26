@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Mappig arrays</title>
+    </head>
+    <body>
+        <h3>Mapping arrays</h3>
+        <script>
+            let items = [
+                {name:"meat",price:25},
+                {name:"vegetables",price:17},
+                {name:"cake",price:20},
+                {name:"drinks",price:27}
+            ]
+            let prices = []
+            for (let item of items){
+                prices.push(item.price)
+            }
+            console.log("Price list using for loop:", prices)
+
+            let priceList = items.map(function(item){
+                return item.price
+            })
+            console.log("Price list after mapping: ",priceList)
+
+            priceList=items.map(item =>item.price)
+            console.log("Price list after mapping (ES6 syntax): ",priceList)
+            let total=0;
+            for(let item of items){
+                total +=item.price
+            }
+            console.log("Total cost of items (for loop)",total)
+
+            let totalReduce = items.reduce((sum,item) =>sum+item.price,0)
+            console.log("Total cost of items (reducer) ",totalReduce)
+
+            let expensiveItems=items.filter(item =>item.price>=25)
+            console.log("The expensive items are: ",expensiveItems)
+
+
+            const values = [3,3,1,2,4,4,4,5,2]
+            const setValues = new Set(values)
+            const uniqueValues=[...setValues]
+            console.log("Unique elemnts in array: ",uniqueValues)
+
+
+
+
+        </script>
+    </body>
+   </html> 

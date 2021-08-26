@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <title>This Keyword</title>
+    </head>
+    <body>
+        <h3>This Keywod</h3>
+        <script>
+            console.log("Is this===window?",this===window)
+            console.log("what is this?",this)
+
+            var age=35
+            console.log("window.age=",window.age)
+            console.log("this.age",this.age);
+
+            this.age=55
+            console.log("window.age=",window.age)
+            console.log("age",age);
+
+            let somefun = ()=>this
+            console.log("this returned from function",somefun())
+
+           let myCar = {
+                make:"Volvo",
+                model:"560",
+                price:42000,
+                printDetails(){
+                   // console.log("this from myCar:",this)
+                   console.log(`
+                       Make:${this.make}
+                       Model:${this.model}
+                       Price:${this.price}`)
+                },
+                engine:{
+                    cylinders:4,
+                    displacement:2000,
+                    horsepower:250,
+                    printDetails(){
+                        console.log(`
+                        Displacement: ${this.displacement}cc
+                        Horsepower:${this.horsepower}bhp`)
+                    }
+                }
+
+            }
+            myCar.printDetails();
+            myCar.engine.printDetails(); 
+
+            myCar = {
+                make:"Volvo",
+                model:"560",
+                price:42000,
+                engine:{
+                    cylinders:4,
+                    displacement:2000,
+                    horsepower:250,
+                }
+
+            }
+            function printCarDetails(){
+                console.log(`
+                       Make:${this.make}
+                       Model:${this.model}
+                       Price:${this.price}`)
+            }
+            function printEngineDetails(){
+                console.log(`
+                        Displacement: ${this.displacement}cc
+                        Horsepower:${this.horsepower}bhp`)
+            }
+
+            console.log("Car details:")
+            printCarDetails.call(myCar)
+            console.log("Engine details:")
+            printEngineDetails.call(myCar.engine)
+
+            let yourCar = {
+                make:"Mercedes Benz",
+                model:"450",
+                price:82000,
+                engine:{
+                    cylinders:5,
+                    displacement:6000,
+                    horsepower:750,
+                }
+
+            }
+
+            console.log("Your car details:")
+            printCarDetails.call(yourCar)
+            console.log("Your engine details")
+            printEngineDetails.call(yourCar.engine)
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

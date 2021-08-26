@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <title>Object Methods</title>
+    </head>
+    <body>
+        <h3>Object Methods</h3>
+        <script>
+            const myCar={
+                make:"Volvo",
+                model:"560",
+                price:42000,
+                color:'Brown',
+                seats:{
+                    materials:"Leather",
+                    color:"Black"
+                }
+            }
+            var samsCar = Object.create(myCar);
+            samsCar.seats.color = "Red"
+            console.log("The effect of Object.create()")
+            console.log("Sam's car: ",samsCar)
+            console.log("My car: ",myCar)
+
+            console.log("Object's keys: ",Object.keys(myCar))
+            console.log("Object's value: ",Object.values(myCar))
+            console.log("Object's entries: ",Object.entries(myCar))
+
+            let s60Engine= {
+                cylinders:4,
+                displacement:2000,
+                horsepower:250
+            }
+
+            let yourCar = Object.assign(myCar,{engine:s60Engine})
+            console.log("The effect of Object.assign()")
+            console.log("Your car: ",yourCar)
+            console.log("My car: ",myCar)
+
+            let herCar = Object.freeze(myCar)
+
+            herCar.color="Yellow"
+            herCar.seats.color="blue"
+
+            herCar.tyres = "MRF"
+            herCar.seats.bucket = true
+
+            console.log("the efect of Object.freeze")
+            console.log("Her car: ",herCar)
+            console.log("My car: ",myCar)
+
+
+
+
+        </script>
+    </body>
+   </html> 

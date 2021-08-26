@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <title>Object Constructors</title>
+    </head>
+    <body>
+        <h3>Object Constructors</h3>
+        <script>
+            function Car(make,model,price,engine){
+                this.make=make;
+                this.model=model
+                this.price=price
+                this.engine=engine
+            }
+            let s60Engine= {
+                cylinders:4,
+                displacement:2000,
+                horsepower:250
+            }
+            let myCar = new Car("Volvo","S60",42000,s60Engine)
+            console.log(`My car is ${myCar.make} ${myCar.model}`)
+
+            let caymanEngine= {
+                cylinders:5,
+                displacement:3000,
+                horsepower:400
+            }
+            let yourCar = new Car("Porsche","718 Cayman",61000,caymanEngine)
+            console.log(`My car is ${yourCar.make} ${yourCar.model}`)
+
+            function Car(make,model,price,engine){
+                this.make=make;
+                this.model=model
+                this.price=price
+                this.engine=engine
+                this.details=function(){
+                    console.log(`
+                    Make:${this.make}
+                    Model:${this.model}
+                    Price:${this.price}`)
+                }
+
+                this.engine.details = function(){
+                    console.log(`
+                    Displacement:${this.displacement}cc
+                    Horsepower:${this.horsepower}bhp`)
+                }
+            }
+
+            myCar = new Car("Volvo","S60",42000,s60Engine)
+            myCar.details();
+            myCar.engine.details()
+
+            class Vehicle{
+                constructor(make,model,price,engine){
+                    this.make=make;
+                this.model=model
+                this.price=price
+                this.engine=engine
+                }
+                details=function(){
+                    console.log(`
+                    Make:${this.make}
+                    Model:${this.model}
+                    Price:${this.price}`)}
+            }
+
+            console.log("Vehicle details")
+            myCar = new Vehicle("Volvo","S60",42000,s60Engine)
+            myCar.details()
+
+            
+
+
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Object Copying</title>
+    </head>
+    <body>
+        <h3>Object Copying</h3>
+        <script>
+            var myCar={
+                make:"Volvo",
+                model:"560",
+                price:42000,
+                color:'Brown',
+                seats:{
+                    materials:"Leather",
+                    color:"Black"
+                }
+            }
+
+            console.log("My Car : ",myCar)
+
+            var yourCar = myCar
+            console.log("Your Car : ",yourCar)
+
+            yourCar.tyres = "MRF"
+            yourCar.seats.color="Brown"
+
+            console.log("Your Car modified ",yourCar)
+            console.log("My car modified",myCar)
+
+            var hisCar = Object.assign({},myCar)
+            hisCar.color="Green"
+            hisCar.seats.color = "Red"
+            console.log("His Car",hisCar)
+            console.log("My Car",myCar)
+
+            var herCar = {...myCar}
+            //console.log("Her Car",herCar)
+            herCar.seats.color = "Black"
+            //console.log("The effect of spread")
+            //console.log("Her Car",herCar)
+            //console.log("My Car",myCar) 
+
+            myCar={
+                make:"Volvo",
+                model:"560",
+                price:42000,
+                color:'Brown',
+                seats:{
+                    materials:"Leather",
+                    color:"Black"
+                }
+            }
+
+            yourCar= JSON.parse(JSON.stringify(myCar))
+
+            yourCar.tyres = "MRF"
+            yourCar.seats.color="Brown"
+            console.log("The effect of JSON.parse() and JSON.stringify() ")
+            console.log("Your car:",yourCar)
+            console.log("My car:",myCar)
+
+
+
+
+
+
+
+
+        </script>
+    </body>
+</html>

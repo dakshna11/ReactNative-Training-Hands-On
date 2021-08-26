@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <title>Objects</title>
+    </head>
+    <body>
+        <script>
+            let firstObj = {id:1,name:"laptop",price:500};
+            let secondObj = {id:2,name:"watch",price:300,brand:"fastrack"}
+            console.log(`firstObj has name of ${firstObj.name} and price ${firstObj.price}`)
+            console.log(`secondObj has name of ${secondObj["name"]} and price of ${secondObj["price"]}`)
+
+            console.log(`The brand of firstObj is ${firstObj.brand} and brand of secondObj is ${secondObj.brand}`)
+            
+            let USD=0.9;
+            let thirdObj = {
+                id:3,
+                name:"headphones",
+                brand:"apple",
+                price:84,
+                priceEUR:this.price*USD
+            }
+            console.log("The price in EUR is ",thirdObj.priceEUR);
+
+            thirdObj = {
+                id:3,
+                name:"headphones",
+                brand:"apple",
+                price:84,
+                priceEUR:function(){return thirdObj.price * USD;}
+            }
+            console.log("Price is ",thirdObj.priceEUR())
+
+            thirdObj = {
+                id:3,
+                name:"headphones",
+                brand:"apple",
+                price:84,
+                priceEUR(){ return this.price*USD}
+            }
+            console.log("The Price is ",thirdObj.priceEUR())
+            thirdObj.mfgCountry = "Canada"
+            console.log(thirdObj)
+
+            let fourthObj = new Object()
+            fourthObj.id=4
+            fourthObj.name="cell phone"
+            fourthObj.price=450
+            console.log("The fourthObj is ",fourthObj);
+
+            delete fourthObj.price
+            console.log(fourthObj)
+
+        </script>
+    </body>
+</html>
