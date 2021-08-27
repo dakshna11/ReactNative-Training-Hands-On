@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Let const var</title>
+    </head>
+    <body>
+        <script>
+            let markup=0
+            const b=15
+            function fun(x){
+                markup = x *(b/100)
+                console.log("inside fun markup=",markup)
+                console.log("inside fun const= ",b)
+            }
+            fun(2.3)
+            console.log("outside fun const= ",b)
+            console.log("outside fun markup= ",markup)
+
+            var i=0
+            function sample(){
+                i=i+3
+                //let c=0
+                console.log("inside sample",i)
+            }
+            sample()
+            console.log("outside sample",i,d)
+
+
+        </script>
+    </body>
+</html>

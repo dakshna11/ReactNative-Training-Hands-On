@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Regexp</title>
+    </head>
+    <body>
+        <h3 id="old">Javascript Reg exp</h3>
+        <p id="p1"></p>
+        <script>
+            let ss='Percipio by Skillsoft'
+            //let found=ss.search(/i/)
+            /*if(found!=-1){
+                document.write("found!! ",found)
+            }
+            else{
+                document.write("Not found")
+            } */
+            //let found1=ss.match(/s/ig)
+            //document.write("\n",found1.length)
+            let searchterm=/by/ //new RegExp('by')
+            let found=searchterm.exec(ss)
+            document.write(found)
+        </script>

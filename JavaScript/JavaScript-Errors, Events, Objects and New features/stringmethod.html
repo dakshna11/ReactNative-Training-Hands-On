@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>JS Strings</title>
+    </head>
+    <body>
+        <h3 id="old">Javascript String</h3>
+        <p id="p1"></p>
+        <p id="p2"></p>
+        <script>
+            let p1=document.getElementById("p1")
+            let ss='percipio by Skillsoft'
+            p1.innerHTML=ss.toUpperCase()
+            p1.innerHTML=ss.substring(0,8).toUpperCase()
+            p1.innerHTML=ss.substring(0,8).toUpperCase()+ss.substring(8,ss.length)
+            p1.innerHTML=(ss.substring(0,8).toUpperCase()+ss.substring(8,ss.length)).replace(' ',' powered ')
+        </script>
+    </body>
+</html>
