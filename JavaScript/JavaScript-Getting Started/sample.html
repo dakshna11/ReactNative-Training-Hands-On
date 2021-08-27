@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <h2>Different ways to display information</h2>
+        <p id="code"></p>
+        <script>
+            document.getElementById("code").innerHTML="Hello world! This is form innerHTML"
+        </script>
+        <p>Hello!! this is from paragraph</p>
+        <script>document.write("Hello!! world I am from first document.write!")</script>
+
+        <br>
+        <br>
+
+        <button onclick="document.write('Hello!! world I am from second document.write!')">Click me to clear existing HTML</button>
+        <br>
+        <br>
+
+        <button onclick="window.alert('Hello!! world I am from window.alert!')">Click me to view a pop up</button>
+
+        <script>
+            console.log("Hello!! i am from console")
+        </script>
+
+
+    </body>
+</html>
