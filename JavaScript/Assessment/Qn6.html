@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <title>Array operations</title>
+    </head>
+    <body>
+        <h3>Array Opeartions</h3>
+        <script>
+            let arr = [10,20,30,40,50,60]
+            //shift a value
+            console.log("Original array: "+arr)
+            arr.shift()
+            console.log("After deleting first element in array: "+arr)
+            //concat with two or more arrays
+            let arr1 = [70,80,90,100]
+            let arr2 = [110,120,130]
+            arr= arr.concat((arr1,arr2))
+            console.log("After concatenating two more arrays: "+arr)
+            //delete a value
+            arr.splice(5,1)
+            console.log("After deleting 5th index of array: "+arr)
+            //add a value at last index
+            arr.push(140)
+            console.log("After adding element at last index: "+arr)
+        </script>
+
+    </body>
+</html>

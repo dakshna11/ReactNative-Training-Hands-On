@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <title>Array intersection</title>
+    </head>
+    <body>
+        <h3>Array Intersection</h3>
+        <script>
+            let arr = [45,35,20,5]
+            let arr1 = [20,78,5,34]
+            let arr2 = [39,74,20,10]
+            let fun = (...arrays)=>{
+                return arrays.reduce((a, b) => a.filter(element => b.includes(element)))
+            }
+            console.log(fun(arr,arr1,arr2))
+
+        </script>
+    </body>
+</html>
