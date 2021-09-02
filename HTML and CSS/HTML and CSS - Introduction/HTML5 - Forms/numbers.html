@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Numbers</title>
+    </head>
+    <body>
+        <script>
+            function myAge(){
+                alert(document.getElementById("myNumber").value)
+            }
+            window.onload=function(){
+                document.getElementById("slider").addEventListener('change',
+                function(){
+                    document.getElementById('slideout').innerHTML = document.getElementById('slider').value
+                },false)
+            }
+        </script>
+        Age:<input type="number" id="myNumber" min="0" max="150"/>
+        <button id="age" onclick="myAge()">Get Age</button><br>
+        Rate yout JS Skills<input id="slider" type="range" min="0" max="100"/>
+        <output id="slideout"></output><br>
+        <input type="date">
+
+    </body>
+</html>
