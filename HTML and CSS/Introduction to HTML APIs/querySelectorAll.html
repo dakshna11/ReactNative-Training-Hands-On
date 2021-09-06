@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Query SelectorAll</title>
+    </head>
+    <body>
+        <script>
+            function doIt(){
+                var result = document.querySelectorAll("a[href]")
+                for(var i=0;i<result.length;i++){
+                    document.getElementById("output").innerHTML += result[i] +"<br>"
+                }
+            }
+        </script>
+        <a href="http://www.google.com">Search Google</a><br>
+        <a href="http://www.yahoo.com">Search Yahoo</a><br>
+        <a href="http://www.facebook.com">Search Facebook</a><br>
+        <button id="doit" onclick="doIt()">Do It</button><br>
+        <span id="output"></span>
+    </body>
+</html>

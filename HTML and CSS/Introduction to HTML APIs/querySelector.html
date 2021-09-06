@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Query Selector</title>
+    </head>
+    <body>
+        <script>
+            function doIt(){
+                var result = document.querySelector(".text")
+                document.getElementById("output").innerHTML = result.innerHTML
+            }
+        </script>
+        <style>
+            .text{
+                font-family: Calibri;
+                color: lightcoral;
+            }
+        </style>
+        <span class="text">This is some text</span><br>
+        <span class="text">This is some more text</span><br>
+        <span class="text" id="output">This is even more text</span><br>
+        <button id="doit" onclick="doIt()">Do It</button>
+    </body>
+</html>

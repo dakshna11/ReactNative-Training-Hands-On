@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Using HTML5 XML</title>
+    </head>
+    <body>
+        <script>
+            function loadDayNightPic(ID){
+                var imghttp = new XMLHttpRequest()
+                imghttp.onreadystatechange=function(){
+                    if(imghttp.readyState==4 && imghttp.status==200){
+                        document.getElementById("output").innerHTML=imghttp.responseText
+                    }
+                }
+                if(ID=='sunrise'){
+                    imghttp.open('GET',sunrise.html,true)
+                }
+                else if(ID=='sunset'){
+                    imghttp.open('GET',sunset.html,true)
+                }
+                else {
+                    imghttp.open('GET',night.html,true)
+                }
+                imghttp.send()
+            }
+        </script>
+        <div id="output"></div>
+        <button id="sunrise" onclick="loadDayNightPic(this.id)">Sunrise</button>
+        <button id="sunset" onclick="loadDayNightPic(this.id)">Sunset</button>
+        <button id="night" onclick="loadDayNightPic(this.id)">Night</button>
+    </body>
+</html>

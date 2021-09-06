@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Query SelectorAll</title>
+    </head>
+    <body>
+        <script>
+            var first,last,ofirst,olast
+            window.onload=function(){
+                first=document.getElementById("first")
+                last=document.getElementById("last")
+                ofirst=document.getElementById("fnameOutput")
+                olast=document.getElementById("lnameOutput")
+                document.getElementById('storeData').addEventListener('click',storeData,false)
+                document.getElementById('retrieveData').addEventListener('click',retrieveData,false)
+
+            }
+            function storeData(){
+                sessionStorage.firstName = first.value
+                sessionStorage.lastName = last.value
+            }
+            function retrieveData(){
+                ofirst.innerHTML=sessionStorage.firstName
+                olast.innerHTML=sessionStorage.lastName
+            }
+        </script>
+        <label>First Name:</label><input type="text" id="first" /><br>
+        <label>Last Name:</label><input type="text" id="last"/><br>
+        <button id="storeData">Store Button</button>
+        <div id="output">
+            First Name: <output id="fnameOutput"></output><br>
+            Last Name: <output id="lnameOutput"></output><br>
+        </div>
+        <button id="retrieveData">Retrieve button</button>
+    </body>
+</html>
