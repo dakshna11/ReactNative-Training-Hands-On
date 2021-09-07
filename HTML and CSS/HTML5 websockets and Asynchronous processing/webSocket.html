@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Web Sockets</title>
+    </head>
+    <script>
+        var ws;
+        function WebSocketOpen(){
+            if("WebSocket" in window){
+                ws=new WebSocket("wss://javascript.info/article/websocket/demo/hello")
+                ws.onopen=function(){
+                    alert("Web socket is connected")
+                }
+                ws.onmessage = function(evt){
+                    var received_msg = evt.data
+                    console.log("message is received..." + received_msg )
+
+                }
+                ws.onclose = function(){
+                    alert("Web socket is closed")
+                }
+            }
+            else{
+                alert("Web Socket NOT supported by your browser")
+            }
+        }
+        function WebSocketSend(){
+            ws.send("Hello world!!")
+        }
+        function WebSocketClose(){
+            ws.onclose()
+        }
+
+    </script>
+
+    <body>
+        <a href="javascript:WebSocketOpen()">Open WebSocket</a><br>
+        <a href="javascript:WebSocketSend()">Send WebSocket</a><br>
+        <a href="javascript:WebSocketClose()">Close WebSocket</a>
+
+
+    </body>
+
+</html>
