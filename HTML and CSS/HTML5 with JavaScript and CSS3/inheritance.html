@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Inheritance</title>
+    </head>
+    <body>
+        <script>
+            var theParent = function(){
+                this.name = "TheParent"
+            }
+            theParent.prototype.print = function(){
+                console.log(this.name)
+            }
+            var a=new theParent()
+            a.print()
+
+            var inherit = function(child,parent){
+                child.prototype=Object.create(parent.prototype)
+            }
+            var theChild = function(){
+                this.name="TheChild"
+                this.lastname = "Child"
+            }
+            inherit(theChild,theParent)
+            var b = new theChild()
+            b.print()
+
+        </script>
+
+    </body>
+</html>

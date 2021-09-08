@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Custom Objects</title>
+    </head>
+    <body>
+        <script>
+            function someObject(parameter){
+                this.propertyOne = parameter
+                this.propertyTwo = "world!"
+            }
+            someObject.prototype.printPropOne=function (){
+                console.log(this.propertyOne)
+            }
+            someObject.prototype.printPropTwo = function (){
+                console.log(this.propertyTwo)
+            }
+            var myObject = new someObject("Hello")
+            myObject.printPropOne()
+            myObject.printPropTwo()
+
+
+        </script>
+        <input type=""
+    </body>
+</html>
