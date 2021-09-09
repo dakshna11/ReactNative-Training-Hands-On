@@ -1,0 +1,132 @@
+.maindiv{
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    background-color: rgb(1, 255, 192);
+
+}
+.insidebox{
+    position: absolute;
+    display: flex;
+    z-index: 9;
+    width: 70%;
+    height: 85%;
+    box-shadow: 5px 5px 28px #888888;
+    top: 8%;
+    left: 10%;
+}
+.left{
+    width: 28.5%;
+}
+.right{
+    width: 71.5%;
+}
+.img{
+    position: absolute;
+    display: flex;
+    width: 17%;
+    height: 20%;
+    top: 32%;
+    left: 6%;
+}
+.help{
+    font-size: 1.25vw ;
+    text-align: right;
+    margin: 2%;
+    padding: 1%;
+    margin-right: 6%;
+}
+.log{
+    font-size: 1.5vw;
+    text-align: center;
+    margin-top: 10%;
+}
+.credentials{
+    position: absolute;
+    width: 50%;
+    height: 60%;
+    left: 40%;
+}
+.cred_text{
+    font-family: Arial;
+    font-size: 1.25vw;
+}
+.field{
+    font-family: Arial;
+    font-size: 1.25vw;
+    width: 98%;
+    height: 12%;
+}
+.forgot{
+    font-family: Arial;
+    font-size: 1.25vw;
+    text-align: right;
+    
+}
+.loginbt{
+    font-family: Arial;
+    font-size: 1.25vw;
+    background-color: rgb(1, 255, 192);
+    border: none;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    display: inline-block;
+    margin: 4px 2px;
+    border-radius :4px;
+    width: 100%;
+}
+.text{
+    font-family: Arial;
+    font-size: 1.25vw;
+    display: flex;
+    position:absolute;
+    top: 52%;
+    left: 6%;
+}
+
+
+@media screen and (max-width:414px) {
+    .maindiv, .left{
+       display: none;
+    }
+    .insidebox{
+        width: 80%;
+        height: 90%;
+        top: 5%;
+        left: 10%;
+        background-color: rgb(204, 247, 255);
+    }
+    .right{
+        position: absolute;
+        height: 70%;
+        width: 100%;
+        top: 15%;
+    }
+    .help{
+        font-size: 4vw ;
+   }
+   .log{
+    font-size: 4vw;
+    }
+    .credentials{
+        width: 70%;
+        height: 60%;
+        left: 15%;
+    }
+    .cred_text{
+        font-size: 4vw;
+    }
+    .field{
+        font-size: 4vw;
+        width: 95%;
+        height: 7%;
+    }
+    .forgot{
+        font-size: 3vw;
+    }
+    .loginbt{
+        font-size: 4vw;
+        width: 98%;
+    }
+}
