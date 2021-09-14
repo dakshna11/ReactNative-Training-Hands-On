@@ -1,0 +1,63 @@
+<html>
+    <head>
+        <title>Implementation of queue using array</title>
+    </head>
+    <body>
+        <h3>Implementation of Queue using array</h3>
+        <script>
+            class Queue{
+                constructor(){
+                    this.items=[]
+                }
+                enqueue(element){
+                   return this.items.push(element)
+                }
+                dequeue(){
+                    if(this.isEmpty()){
+                        return "Queue Underflow"
+                    }
+                    return this.items.shift()
+                }
+                front(){
+                    if(this.isEmpty()){
+                        return "Queue Underflow"
+                    }
+                    return this.items[0]
+                }
+                rear(){
+                    if(this.isEmpty()){
+                        return "Queue Underflow"
+                    }
+                    return this.items[this.items.length-1]
+                }
+                isEmpty(){
+                    return this.items.length==0
+                }
+                printQueue(){
+                    var str=""
+                for(var i=0;i<this.items.length;i++){
+                    str += this.items[i] + " "
+                }
+                return str
+                }
+                length(){
+                    return this.items.length
+                }
+          }
+          var queue = new Queue()
+            document.write("Whether Queue is empty? "+queue.isEmpty()+"<br>")
+            document.write("Poping out element : "+queue.dequeue()+"<br>")
+            document.write("Enqueue element in queue, now size of queue is: "+queue.enqueue(10)+"<br>")
+            document.write("Enqueue element in queue, now size of queue is: "+queue.enqueue(20)+"<br>")
+            document.write("Enqueue element in queue, now size of queue is: "+queue.enqueue(30)+"<br>")
+            document.write("Enqueue element in queue, now size of queue is: "+queue.enqueue(40)+"<br>")
+            document.write("Enqueue element in queue, now size of queue is: "+queue.enqueue(50)+"<br>")
+            document.write("Poping out element : "+queue.dequeue()+"<br>")
+            document.write("Displaying queue elements : "+queue.printQueue()+"<br>")
+            document.write("Front element in queue: "+ queue.front()+"<br>")
+            document.write("Rear element in queue: "+ queue.rear()+"<br>")
+            document.write("Whether Queue is empty? "+queue.isEmpty()+"<br>")
+            document.write("Current queue size is: "+queue.length())
+        </script>
+    </body>
+</html>
