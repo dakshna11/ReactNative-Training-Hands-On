@@ -1,0 +1,39 @@
+Associativity:
+1. ^
+2. *,/
+3. +,-
+
+exp:((a+b)*c)
+ 
+ symbol              stack                     postfix     
+ (                    (                          -
+ (                    ((                         -
+ a                    ((                         a
+ +                    ((+                        a
+ b                    ((+                        ab
+ )                    ((+)- pop                  ab+
+ *                     (*                        ab+
+ c                     (*                        ab+c
+ )                     (*) - pop                 ab+c*
+
+ exp:(a+b/c*(d+e)-f)
+
+ symbol              stack                     postfix   
+ (                     (                         -
+ a                     (                         a
+ +                     (+                        a
+ b                     (+                        ab
+ /                     (+/                       ab
+ c                     (+/                       abc
+ *                     (+*                       abc/
+ (                     (+*(                      abc/
+ d                     (+*(                      abc/d
+ +                     (+*(+                     abc/d
+ e                     (+*(+                     abc/de
+ )                     (+*(+)  - pop             abc/de+
+ -                     (+ * - first poping *,    abc/de+*+
+                      same priority pop plus 
+                      also
+                       (-
+ f                     (-                       abc/de+*+f
+ )                     (-)  - pop               abc/de+*+f-                   
