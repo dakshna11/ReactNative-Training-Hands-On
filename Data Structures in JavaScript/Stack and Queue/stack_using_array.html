@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Stack implementation using array</title>
+    </head>
+    <body>
+        <h3>Implementation of Stack using array</h3>
+        <script>
+            class Stack{
+                constructor(){
+                    this.items=[]
+                }
+            push(element){
+                 return this.items.push(element)
+            }
+            pop(){
+                if(this.items.length==0){
+                    return "Stack Underflow"
+                }
+                return this.items.pop()
+            }
+            peek(){
+                return this.items[this.items.length-1]
+            }
+            isEmpty(){
+                return this.items.length==0
+            }
+            printStack(){
+                var str=""
+                for(var i=0;i<this.items.length;i++){
+                    str += this.items[i] + " "
+                }
+                return str
+            }
+            length(){
+                return this.items.length
+            }
+        }
+            
+            var stack = new Stack()
+            document.write("Whether Stack is empty? "+stack.isEmpty()+"<br>")
+            document.write("Poping out element : "+stack.pop()+"<br>")
+            document.write("Pushing element in stack, now size of stack is: "+stack.push(10)+"<br>")
+            document.write("Pushing element in stack, now size of stack is: "+stack.push(20)+"<br>")
+            document.write("Pushing element in stack, now size of stack is: "+stack.push(30)+"<br>")
+            document.write("Pushing element in stack, now size of stack is: "+stack.push(40)+"<br>")
+            document.write("Pushing element in stack, now size of stack is: "+stack.push(50)+"<br>")
+            document.write("Poping out element : "+stack.pop()+"<br>")
+            document.write("Displaying stack elements : "+stack.printStack()+"<br>")
+            document.write("Peeking the last element in stack: "+ stack.peek()+"<br>")
+            document.write("Whether Stack is empty? "+stack.isEmpty()+"<br>")
+            document.write("Current stack size is: "+stack.length())
+        </script>
+    </body>
+</html>

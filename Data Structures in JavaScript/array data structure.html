@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <title>Array Data Structure</title>
+    </head>
+    <body>
+        <h3>Array Data Structure</h3>
+        <p>1.Traverse</p>
+        <p>2.Insertion</p>
+        <p>3.Deletion</p>
+        <p>4.Search</p>
+        <p>5.Update</p>
+        <script>
+            console.log("Traversing elements in array")
+            let arr=[1,2,3,4,5,6]
+            for(var i=0;i<arr.length;i++){
+                console.log(arr[i])
+            }
+            console.log("Inserting element at index 4 in array")
+            arr.splice(4,0,8)
+            let print=(arr)=>{
+                for(let i of arr){
+                    console.log(i)
+                }
+            }
+            print(arr)
+            console.log("Deleting element at index 2 in array")
+            arr.splice(2,1)
+            print(arr)
+
+            console.log("Searching element 5 in array")
+            console.log(arr.includes(5))
+
+            console.log("Updating element 4 to 10 in array")
+            arr.splice(2,1,10)
+            print(arr)
+
+
+        </script>
+    </body>
+</html>

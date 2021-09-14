@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <title>Implementation of Queue using Linked list</title>
+    </head>
+    <body>
+        <h3>Implementation of Queue using Linked list</h3>
+        <script>
+            class Qnode{
+                constructor(key){
+                    this.key=key
+                    this.next=null
+                }
+            }
+            let front=null,rear=null
+            function enqueue(key){
+                let temp = new Qnode(key)
+                if(rear==null){
+                    front=rear=temp
+                    return
+                }
+                rear.next=temp
+                rear=temp
+            }
+            function dequeue(){
+                if(front==null){
+                    return
+                }
+                let temp=front
+                front=front.next
+                if(front==null){
+                    rear==null
+                }
+            }
+
+            enqueue(10)
+            enqueue(20)
+            enqueue(30)
+            enqueue(40)
+            enqueue(50)
+            dequeue()
+            document.write("Queue front: "+front.key+"<br>")
+            document.write("Queue rear: "+rear.key+"<br>")
+        </script>
+    </body>
+</html>

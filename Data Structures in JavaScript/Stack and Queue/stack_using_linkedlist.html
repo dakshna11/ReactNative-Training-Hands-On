@@ -1,0 +1,74 @@
+<html>
+    <head>
+        <title>Implementation of stack using linked list</title>
+    </head>
+    <body>
+        <h3>Implementation of stack using linked list</h3>
+        <script>
+            class Node{
+                constructor(element){
+                    this.data=element
+                    this.link=null
+                }
+            }
+            class StackUsingLinkedList{
+                constructor(){
+                    this.top=null
+                }
+                push(element){
+                    let temp = new Node(element)
+                    console.log(temp)
+                    if(temp==null){
+                        document.write("<br>Stack Overflow")
+                        return 
+                    }
+                    temp.link = this.top
+                    this.top=temp
+                }
+                isEmpty(){
+                    return this.top == null
+                }
+                peek(){
+                    if(!this.isEmpty()){
+                        return this.top.data
+                    }
+                    else{
+                        document.write("Stack is empty<br>")
+                        return -1
+                    }
+                }
+                pop(){
+                    if(this.top==null){
+                        document.write("<br> Stack underflow")
+                        return
+                    }
+                    this.top=this.top.link
+                }
+                display(){
+                    if(this.top==null){
+                        document.write("<br> Stack underflow")
+                }
+                    else{
+                    let temp=this.top
+                    while(temp!=null){
+                        document.write(temp.data+ "->")
+                        temp=temp.link
+                    }
+                }
+            }
+        }
+        let obj = new StackUsingLinkedList()
+        obj.push(10)
+        obj.push(20)
+        obj.push(30)
+        obj.push(40)
+        obj.push(50)
+        obj.display();
+        document.write("<br>Top element is ", obj.peek()+"<br>")
+        obj.pop()
+        obj.pop()
+        obj.display();
+        document.write("<br>Top element is ", obj.peek()+"<br>")
+        </script>
+    </body>
+</html>

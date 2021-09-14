@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>LinkedList</title>
+    </head>
+    <body>
+        <script>
+
+                class Node {
+                    // constructor
+                    constructor(element) {
+                        this.element = element;
+                        this.next = null
+                    }
+                }
+                // linkedlist class
+                class LinkedList {
+                    constructor() {
+                        this.head = null;
+                        this.size = 0;
+                    }
+                
+                    // adds an element at the end of list
+                    //stack implementation using LL
+                    add(element) {
+                        var node = new Node(element);
+            
+                        var current;
+                
+                        if (this.head == null) //empty LL
+                            this.head = node;
+                        else {
+                            current = this.head;
+                
+                            while (current.next) {  //iterating upto finding a null next
+                                current = current.next;
+                            }
+                            
+                            current.next = node;
+                        }
+                        this.size++;
+                    }
+                    //Insert at beginning
+                    addAtBeginning(element){
+                        let node=new Node(element)
+                        
+                        if(!this.head){
+                            this.node=node
+                        }
+                        else{
+                            node.next=this.head
+                            this.head=node
+                        }
+                    }
+                    //Insert at a specified index
+                    insertAt(element, index) {
+                        if (index < 0 || index > this.size)
+                            return console.log("Please enter a valid index.");
+                        else {
+                            
+                            var node = new Node(element);
+                            var curr, prev;
+                
+                            curr = this.head;
+                
+                           
+                            if (index == 0) {
+                                node.next = this.head;
+                                this.head = node;
+                            } else {
+                                curr = this.head;
+                                var it = 0;
+                
+                                
+                                while (it < index) {
+                                    it++;       //0 1 2
+                                    prev = curr;//0 1
+                                    curr = curr.next;// 1 2
+                                }
+                
+                                // adding an element
+                                node.next = curr;  // prev node curr
+                                prev.next = node;
+                            }
+                            this.size++;
+                        }
+                    }
+                    // removes an element from the specified location
+                    removeFrom(index) {
+                        if (index < 0 || index >= this.size)
+                            return console.log("Please Enter a valid index");
+                        else {
+                            var curr, prev, it = 0;
+                            curr = this.head;
+                            prev = curr;
+                
+                            // deleting first element
+                            if (index === 0) {
+                                this.head = curr.next;
+                            } else {
+                                // iterate over the list to the
+                                // position to removce an element
+                                while (it < index) {
+                                    it++;
+                                    prev = curr;
+                                    curr = curr.next;
+                                }
+                
+                                // remove the element
+                                prev.next = curr.next; // prev XcurrX curr.next
+                            }
+                            this.size--;
+                
+                            // return the remove element
+                            return curr.element;
+                        }
+                    }
+                    // removes a given element from the  list
+                    removeElement(element) {
+                        var current = this.head;
+                        var prev = null;
+                
+                        // iterate over the list
+                        while (current != null) {
+                            // comparing element with current element if found then remove them
+                            // and return true
+                            if (current.element === element) {
+                                if (prev == null) {
+                                    this.head = current.next;
+                                } else {
+                                    prev.next = current.next;
+                                    current.next=null
+                                }
+                                this.size--;
+                                return current.element;
+                            }
+                            prev = current;
+                            current = current.next;
+                        }
+                        return -1;
+                    }
+                    // finds the index of element
+                    search(element) {
+                        var count = 0;
+                        var current = this.head;
+                
+                        // iteraet over the list
+                        while (current != null) {
+                            // compare each element of the list
+                            // with given element
+                            if (current.element === element)
+                                return count;
+                            count++;
+                            current = current.next;
+                        }
+                        // not found
+                        return -1;
+                    }
+                
+                    // checks the list for empty
+                    isEmpty() {
+                        return this.size == 0;
+                    }
+                
+                    // gives the size of the list
+                    size_of_list() {
+                        return this.size;
+                    }
+                
+                
+                    // prints the list items
+                    printList() {
+                        var curr = this.head;
+                        var str = "";
+                        while (curr) {
+                            str += curr.element + " ";
+                            curr = curr.next;
+                        }
+                        console.log(str);
+                    }
+                
+                }
+                
+                var ll = new LinkedList();
+                
+                console.log(ll.isEmpty());
+                
+                ll.add(10);
+                
+                ll.printList();
+                
+                console.log("size of LL is",ll.size_of_list());
+                ll.add(20);
+                ll.add(30);
+                ll.add(40);
+                ll.addAtBeginning(5);
+                ll.add(50);
+                
+                ll.printList();
+                
+                console.log("Element removed is" + ll.removeElement(50));
+                
+                ll.printList();
+                
+                console.log("Index of 40 is " + ll.search(40));
+                
+                ll.insertAt(60, 2);
+                
+                ll.printList();
+
+                console.log("is List Empty ? " + ll.isEmpty());
+        
+                console.log(ll.removeFrom(3));
+                
+                ll.printList();
+                        
+        </script>
+    </body>
+</html>

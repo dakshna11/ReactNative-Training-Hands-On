@@ -1,0 +1,8 @@
+Asymptotic notation:
+
+    Big oh(O)   : O(g(n)) => f(n)<=c*g(n) for all n>=n0
+eg: 
+   2n+3<=5n
+  if n=1, then 2+3<=5 which is true
+therefore: f(n)=2n+3, c=5 and g(n)=n
+   so in general we can say O(n)
