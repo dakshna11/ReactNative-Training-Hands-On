@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CLinkedList</title>
+    </head>
+    <body>
+        <h1>Circular LinkedList</h1>
+        <script>
+
+                        class Node{
+                        constructor(element){
+                            this.element = element;
+                            this.next = null;
+                        }
+                        }
+
+                        class circularLinkedList{
+                        constructor(){
+                            this.size = 0;
+                            this.head = null;
+                            this.tail = null;
+                        }
+                        add(element) {
+                        var node = new Node(element);
+
+                        if(this.head == null) {
+                            this.head = node;
+                            this.tail = node;
+                        } else {
+                            this.tail.next = node;
+                            this.tail = node;
+                        }
+                        this.tail.next = this.head;
+                        
+                        this.size++;
+                        
+                        } 
+
+                        insertAt(element, index) {
+                        if (index < 0 || index > this.size)
+                            return document.write("Please enter a valid index.");
+                        else {
+                            
+                            var node = new Node(element);
+                            var curr, prev;
+                
+                            curr = this.head;
+                
+                           
+                            if (index == 0) {
+                                node.next = this.head;
+                                this.head = node;
+                            } else {
+                                curr = this.head;
+                                var it = 0;
+                
+                                
+                                while (it < index) {
+                                    it++;       //0 1 2
+                                    prev = curr;//0 1
+                                    curr = curr.next;// 1 2
+                                }
+                
+                                // adding an element
+                                
+                                node.next = curr;  // prev node curr
+                               
+                                
+                                prev.next = node;
+
+                            }
+                            this.size++;
+                        }
+                    }  
+
+                    removeFrom(index) {
+                        if (index < 0 || index >= this.size)
+                            return document.write("Please Enter a valid index");
+                        else {
+                            var curr, prev, it = 0;
+                            curr = this.head;
+                            prev = curr;
+                
+                            // deleting first element
+                            if (index === 0) {
+                                this.head = curr.next;
+                            } 
+                            else {
+                                // iterate over the list to the
+                                // position to removce an element
+                                while (it < index) {
+                                    it++;
+                                    prev = curr;
+                                    curr = curr.next;
+                                }
+                
+                                // remove the element
+                                prev.next = curr.next; // prev XcurrX curr.next
+                            }
+                            this.size--;
+                
+                        }
+                    }
+                    // removes a given element from the  list
+                    
+                    search(element) {
+                        var count = 0;
+                        var current = this.head;
+                
+                        // iterear over the list
+                        while (count<this.size) {
+                            // compare each element of the list with given element
+                            if (current.element === element)
+                                return count;
+                            count++;
+                            current = current.next;
+                        }
+                        // not found
+                        return "Element not found";
+                    }
+                
+                    // checks the list for empty
+                    isEmpty() {
+                        return this.size == 0;
+                    }
+                    // gives the size of the list
+                    size_of_list() {
+                        return this.size;
+                    }
+                
+                        
+                        printList() {
+                        var curr = this.head;
+                        var str = "";
+                        for(let i=0;i<this.size;i++) {
+                            str += curr.element + " ";
+                            curr = curr.next;
+                        }
+                        document.write(str,"<br>");
+                    }
+                        
+                    }
+
+                    let cLL=new circularLinkedList()
+                    cLL.add(10)
+                    cLL.add(20)
+                    cLL.add(30)
+                    cLL.printList()
+                    cLL.insertAt(25,2)
+                    cLL.printList()
+                    cLL.removeFrom(2)
+                    document.write("Element found at index",cLL.search(20),"<br>")
+                    cLL.printList()
+                        
+        </script>
+    </body>
