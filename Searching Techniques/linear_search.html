@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>Linear Search</title>
+    </head>
+    <body>
+        <h3>Linear Search</h3>
+        <script>
+            let search=(arr,n,x)=>{
+                let i
+                for(i=0;i<n;i++){
+                    if(arr[i]==x){
+                        return ++i
+                    }
+                } 
+                return -1
+            }
+            let arr=[2,3,4,10,40]
+            document.write(arr,"<br>")
+            let x=10
+            let n=arr.length
+            let result = search(arr,n,x)
+            result==-1 ? document.write("Element is not present in array")
+               :document.write("Element found at position : "+result)
+
+
+        </script>
+    </body>
+</html>
