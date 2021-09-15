@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>Time and Space complexity</title>
+    </head>
+    <body>
+        <h3>Time and Space complexity</h3>
+        <script>
+            //O(1)
+            const getLast = items =>
+             document.write(items[items.length-1],"<br>"); 
+            
+            getLast(['a', 'b', 'c', 'd']); // d (1 iteration)
+            getLast(['a', 'b', 'c', 'd', 'e', 'f', 'g']);// g (1 iteration)
+
+            //O(n)
+            const findIndex = (items, match) => {
+            for (let i = 0, total = items.length; i < total; i++)
+                if (items[i] == match)
+                return document.write(i,"<br>");
+            return document.write("-1 <br>");
+            };
+            const array= ['a', 'b', 'c', 'd'];
+            findIndex(array, 'a'); // 0  (1 iteration - best case)
+            findIndex(array, 'd'); // 3  (4 iterations - worst case)
+            findIndex(array, 'e'); // -1 (4 iterations - worst case)
+
+            //O(n^2)
+            const buildSquareMatrix = items => {
+            let matrix = [];
+            for (let i = 0, total = items.length; i < total; i++){ 
+                matrix[i] = [];
+                for (let j = 0, total = items.length; j < total; j++)
+                matrix[i].push(items[j]);
+            }
+            return matrix;
+            }
+            document.write(buildSquareMatrix(['a', 'b', 'c'])); 
+        /* 9 iterations for 3 elements, returns:
+        [
+        ['a', 'b', 'c'],
+        ['a', 'b', 'c'],
+        ['a', 'b', 'c']
+        ]*/
+
+        function add(n1, n2) {
+        const sum = n1 + n2
+        return sum
+        }
+        // In JavaScript, a number requires 64 bits of memory.
+        // For simplicity, we'll translate 64 bits to 8 bytes.
+        // The add function requires memory for 3 variables: n1, n2, & sum.
+        // This memory is related to input space.
+        // The add function requires memory for the function call and 
+        // return statement. This memory is related to auxiliary space.
+        // The required memory for the add function would be:
+        //  n1 | 8 bytes
+        //       +
+        //  n2 | 8 bytes
+        //       +
+        // sum | 8 bytes
+        //       +
+        // aux | 8 bytes (this is a wild guess!)
+        //       =
+        //       32 bytes
+        // The thing to note here is that the data space and auxiliary
+        // space are constant. No matter the value of the inputs, the
+        // memory needs are always the same:
+        // n1 + n2 + sum + aux, or 8 + 8 + 8 + 8 = 32 bytes.
+        // We can evaluate the space complexity of the add function as 
+        // constant or O(1). 
+
+        function sum(arr) {
+        const sum = 0
+        for (let i = 0; i < arr.length; i++) {
+            sum += arr[i]
+        }
+        return sum
+        }
+        // The sum function requires memory for two variables: sum & i.
+        // This memory is related to input space.
+        // The sum function requires memory for the function call, the for
+        // loop and the return statement. This memory is related to
+        // auxiliary space.
+        // The thing to note here is that the data space, or input space
+        // is not constant. It is linear. The required memory for the input
+        // space depends on the size of the data. In this case, the length
+        // of the Array. For example:
+         arr = [1, 2, 3, 4, 5]
+        // N => arr.length => 5
+        sum(arr)
+        // The required memory for the sum function would be:
+        //  arr = k * 5 | 8 bytes * 5 = 40 bytes
+        //                          +
+        //          sum |                8 bytes
+        //                          +
+        //            i |                8 bytes
+        //                          +
+        //          aux |                8 bytes (another wild guess!)
+        //                          =
+        //                              64 bytes
+        // Suppose the length of the Array was 10 instead of 5:
+        const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        // N => arr.length => 10
+        sum(arr)
+        // The required memory for the sum function would be:
+        //  arr = k * 10 | 8 bytes * 10 = 80 bytes
+        //                                 +
+        //           sum |                 8 bytes
+        //                                 +
+        //             i |                 8 bytes
+        //                                 +
+        //           aux |                 8 bytes (another wild guess!)
+        //                                 =
+        //                               104 bytes
+        // The needed memory for the sum function to execute 
+        // proportionally increases with the size of the input: 
+        // k * N + sum + i, for N = 10: 8 * 10 + 8 + 8 + 8 = 104 bytes
+        // We can evaluate the space complexity of the sum function as 
+        // linear or O(n).
+
+        </script>
+    </body>
+</html>
