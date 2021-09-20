@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question 1</title>
+    </head>
+    <body>
+        <script>
+             class Node {
+                    constructor(element) {
+                        this.element = element;
+                        this.next = null
+                    }
+            }
+            class LinkedList {
+                constructor() {
+                    this.head = null;
+                    this.size = 0;
+                }
+                add(element) {
+                    var node = new Node(element);
+                    var current;
+                    if (this.head == null) 
+                        this.head = node;
+                    else {
+                        current = this.head;
+                        while (current.next) { 
+                            current = current.next;
+                        }
+                        current.next = node;
+                    }
+                    this.size++;
+                }
+                removeDuplicates(){
+                    var current  = this.head
+                    while(current!=null && current.next!=null){
+                        if(current.element === current.next.element){
+                            current.next = current.next.next
+                        }
+                        else{
+                        current = current.next }
+                }
+            }
+                printList() {
+                    var curr = this.head;
+                    var str = "";
+                    while (curr) {
+                        str += curr.element + " ";
+                        curr = curr.next;
+                    }
+                    console.log(str);
+                }
+                
+            }
+            var linkedl = new LinkedList()
+            linkedl.add(11)
+            linkedl.add(11)
+            linkedl.add(11)
+            linkedl.add(21)
+            linkedl.add(43)
+            linkedl.add(43)
+            linkedl.add(60)
+            linkedl.printList()
+            linkedl.removeDuplicates()
+            linkedl.printList()
+
+                
+        </script>
+    </body>
+</html>

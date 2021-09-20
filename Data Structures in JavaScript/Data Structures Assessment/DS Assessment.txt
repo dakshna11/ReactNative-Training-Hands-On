@@ -1,0 +1,26 @@
+
+1. Insert another item 55 into this Heap. 
+
+     77
+    /  \
+   /    \
+  50    60
+ / \    / \
+22 30  44 55
+
+
+2. Remove duplicates from a sorted linked list. For example if the linked list is 11->11->11->21->43->43->60 then removeDuplicates() should convert the list to 11->21->43->60. 
+
+3.Write a function to get Nth node in a Linked List:  1->10->30->14
+
+4.Implement two stacks in an array
+ a. pop an element from first stack and return the popped element.
+ b. push an element to second stack.
+
+5.Convert Binary Search Tree to Min Heap
+
+         	 4
+               /   \
+              2     6
+            /  \   /  \
+           1   3  5    7  

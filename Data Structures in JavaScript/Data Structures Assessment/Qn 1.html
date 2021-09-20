@@ -1,0 +1,104 @@
+<html>
+    <head>
+        <title>Max Heap</title>
+    </head>
+    <body>
+        <h3>Max Heap</h3>
+        <script>
+            class maxHeap {
+
+            constructor () {
+                
+                this.heap = []
+            }
+
+            getMin () {
+                /* Accessing the min element at index 1 in the heap array */
+                return this.heap[0]
+            }
+
+            insert (node) {
+
+               
+                this.heap.push(node)
+
+
+                if (this.heap.length > 0) {
+                    let current = this.heap.length - 1
+
+                    while (current > 0 && this.heap[Math.floor((current-1)/2)] < this.heap[current]) {
+
+                        [this.heap[Math.floor((current-1)/2)], this.heap[current]] = [this.heap[current], this.heap[Math.floor((current-1)/2)]]
+                        current = Math.floor((current-1)/2)
+                    }
+                }
+            }
+
+            remove() {
+                /* largest element is at the index 1 in the heap array */
+                let largest = this.heap[0]
+
+                /* When there are more than two elements in the array, we put the right most element at the first position
+                    and start comparing nodes with the child nodes
+                */
+                if (this.heap.length > 1) {
+                    this.heap[0] = this.heap[this.heap.length-1]  //BRING LAST ELEMENT TO FIRST PLACE
+                    this.heap.splice(this.heap.length - 1)
+
+                    if (this.heap.length === 2) {
+                        if (this.heap[0] < this.heap[1]) {
+                            [this.heap[0], this.heap[1]] = [this.heap[1], this.heap[0]]
+                        }
+                        return largest
+                    }
+
+                    let current = 0
+                    let leftChildIndex = current * 2 + 1
+                    let rightChildIndex = current * 2 + 2
+
+                    while (this.heap[leftChildIndex] && this.heap[rightChildIndex] &&
+                            (this.heap[current] < this.heap[leftChildIndex] ||
+                                this.heap[current] < this.heap[rightChildIndex])) {
+                        if (this.heap[leftChildIndex] > this.heap[rightChildIndex]) {
+                            [this.heap[current], this.heap[leftChildIndex]] = [this.heap[leftChildIndex], this.heap[current]]
+                            current = leftChildIndex
+                        } else {
+                            [this.heap[current], this.heap[rightChildIndex]] = [this.heap[rightChildIndex], this.heap[current]]
+                            current = rightChildIndex
+                        }
+
+                        leftChildIndex = current * 2 + 1
+                        rightChildIndex = current * 2 + 2
+                    }
+                }
+
+                /* If there are only two elements in the array, we directly splice out the first element */
+
+                else if (this.heap.length === 1) {
+                    this.heap.splice(0, 1)
+                } else {
+                    return null
+                }
+                return largest
+            }
+            display(){
+                return this.heap
+            }
+            }
+            let maxh = new maxHeap()
+            maxh.insert(77)
+            maxh.insert(50)
+            maxh.insert(60)
+            maxh.insert(22)
+            maxh.insert(30)
+            maxh.insert(44)
+            maxh.insert(55)
+            document.write(maxh.display(),"<br>")
+            maxh.insert(55)
+            document.write(maxh.display(),"<br>")
+            
+            
+
+        </script>
+    </body>
+</html>

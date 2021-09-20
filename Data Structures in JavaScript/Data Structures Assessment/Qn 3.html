@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Question 1</title>
+    </head>
+    <body>
+        <script>
+             class Node {
+                    constructor(element) {
+                        this.element = element;
+                        this.next = null
+                    }
+            }
+            class LinkedList {
+                constructor() {
+                    this.head = null;
+                    this.size = 0;
+                }
+                add(element) {
+                    var node = new Node(element);
+                    var current;
+                    if (this.head == null) 
+                        this.head = node;
+                    else {
+                        current = this.head;
+                        while (current.next) { 
+                            current = current.next;
+                        }
+                        current.next = node;
+                    }
+                    this.size++;
+                }
+                printNthNode(index) {
+                    var curr = this.head;
+                    var count=0
+                    while (curr!=null) {
+                        if(index==count){
+                            return curr.element
+                        }
+                        count++
+                        curr = curr.next;
+                    }
+                }
+                
+            }
+            var linkedl = new LinkedList()
+            linkedl.add(1)
+            linkedl.add(10)
+            linkedl.add(30)
+            linkedl.add(14)
+            var index = 2
+            console.log("Element at index " + index + " is : " +linkedl.printNthNode(index))
+        </script>
+    </body>
+</html>
