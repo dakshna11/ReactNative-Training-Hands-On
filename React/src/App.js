@@ -1,34 +1,57 @@
 
 import './App.css';
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Home from './components/Home';
-import About from './components/About';
-import Contact from './components/Contact';
 
-class App extends Component {
-  render() {
-    return (
-    <Router>
-        <div>
-          <h2>Welcome to React Router Tutorial</h2>
-          <nav className="navbar navbar-expand-lg navbar-light bg-light">
-          <ul className="navbar-nav mr-auto">
-            <li><Link to={'/'} className="nav-link"> Home </Link></li>
-            <li><Link to={'/contact'} className="nav-link">Contact</Link></li>
-            <li><Link to={'/about'} className="nav-link">About</Link></li>
-          </ul>
-          </nav>
-          <hr />
-          <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/contact' component={Contact} />
-              <Route path='/about' component={About} />
-          </Switch>
-        </div>
-      </Router>
+function Welcome (props) {
+  return <h1>Hello, {props.name}</h1>;
+
+} 
+function button(){
+    alert('hello')
+}
+function App() { 
+  return (
+    <div className="App">
+      <Welcome name="John"/>
+      <Welcome name="Mary"/>
+      <Welcome name="Alex"/>
+    
+      <button onClick={button}>Click here!!</button>
+    
+    </div>
+  );
+}
+
+/*lass Clock extends Component{
+  constructor(props){
+    super(props)
+    this.state = {date:new Date()}
+  }
+  componentDidMount(){
+    this.timerID = setInterval(
+      ()=>this.tick(),1000
+    )
+  }
+  componentWillUnmount(){
+    clearInterval(this.timerID)
+  }
+  tick(){
+    this.setState({
+      date:new Date()
+    })
+  }
+  button(){
+    alert('Hello')
+  }
+  render(){
+    return(
+      <div>
+        <h1>Welcome</h1>
+        <h2>It is {this.state.date.toLocaleTimeString()}.</h2>
+        <button onClick={this.button}>Click me!</button>
+      </div>
     );
   }
-}
+}*/
 
 export default App;
