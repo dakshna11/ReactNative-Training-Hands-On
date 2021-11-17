@@ -7,31 +7,30 @@ import SQLite from 'react-native-sqlite-storage'
 
 const db = SQLite.openDatabase(
     {
-        name: 'MainDB',
-        location: 'default'
-    },
-    () => {},
-    error => {console.log(error)}
+        name: 'MainDB'
+    }
 )
 const COLORS={primary: '#1f145c', white:'#fff'}
 
 const App = ()=>{
     const [textInput, setTextInput] = useState('')
     const [todos, setTodos] = useState([])
-    React.useEffect(()=>{
+    React.useEffect(() => {
         createTable()
         getTodosFromDevice()
     },[])
-    React.useEffect(()=>{
-        saveTodoToDevice(todos)
-    },[todos])
 
     const createTable = ()=>{
         db.transaction((tx)=>{
             tx.executeSql(
-                "CREATE TABLE IF NOT EXISTS"
-                + "Users"
-                + "(Todo TEXT)"
+                "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, Todo VARCHAR(1000))",
+                [],
+                (tx,res)=>{
+                    console.log("Table created successfully")
+                },
+                error =>{
+                    console.log("Error occured")
+                }
             )
         })
     }
@@ -62,7 +61,7 @@ const App = ()=>{
         )
 
     }
-    const saveTodoToDevice = async ()  =>{
+    const saveTodoToDevice =  ()  =>{
         // try{
         //     const stringifyTodos = JSON.stringify(todos)
         //     await AsyncStorage.setItem('todos', stringifyTodos)
@@ -70,16 +69,17 @@ const App = ()=>{
         //     console.log(e)
         // }
         try{
-            Alert.alert('calling settodo')
-            await db.transaction(async (tx)=>{
-                await tx.executeSql(
+           
+             db.transaction( (tx)=>{
+                 tx.executeSql(
                     "INSERT INTO Users (Todo) VALUES (?)",
-                    [todos]
+                    [textInput]
                 )
             })
         } catch(error){
             console.log(error)
         }
+        Alert.alert('calling settodo')
     }
     const getTodosFromDevice = ()=>{
         // try{
@@ -94,25 +94,35 @@ const App = ()=>{
             Alert.alert('calling gettodo')
             db.transaction((tx)=>{
                 tx.executeSql(
-                    "SELECT Todo from Users",
+                    "SELECT * FROM Users",
                     [],
                     (tx, results) =>{
-                        var userTodo = results.rows.item().todos
-                        setTodos(userTodo)
+                        console.log("Retrieved successfully")
+                        var len = results.rows.length
+
+                        if(len>0){
+                            var res = []
+                            for(let i=0; i<len; i++){
+                                let item = results.rows.item(i)
+                                res.push({id: item.id, Todo: item.Todo})
+                            }
+                            setTodos(res)
+                        }
+
                     }
                 )
             })
         } catch(error){
             console.log(error)
         }
-
     }
     const addTodo =()=>{
         if(textInput ==''){
             Alert.alert("Error","Please type something")
         }
         else{
-        console.log(textInput)
+            saveTodoToDevice()
+        //console.log(textInput)
         const newTodo ={
             id: Math.random(),
             task: textInput,
