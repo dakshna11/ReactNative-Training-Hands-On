@@ -13,6 +13,7 @@ function* getDetails({payload}){
         type: types.SEND_REQUEST_GET_DETAILS_USER_SUCCESS,
         payload: user
     })
+    console.log(user)
 }
 
 export default function* contactSaga(){

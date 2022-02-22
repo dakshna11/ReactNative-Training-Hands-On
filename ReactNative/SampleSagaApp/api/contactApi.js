@@ -7,5 +7,6 @@ export const getAllUsers = async ()=> {
 
 export const getDetailsOfUser = async payload => {
     const user = await axios.get('users/' + payload.id)
+    console.log(user)
     return user.data
 }

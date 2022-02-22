@@ -1,37 +1,35 @@
 import React, {useEffect} from 'react';
-import {StyleSheet,ActivityIndicator, View,Text, ScrollView,} from 'react-native';
+import {StyleSheet,ActivityIndicator, View,Text, FlatList,} from 'react-native';
 import {useDispatch, useSelector} from 'react-redux';
-import {fetchDetailsData} from '../actions/detailsActions';
+import {fetchContactData} from '../actions/contactActions';
 
 const HomeScreen = () => {
   const dispatch = useDispatch();
-  const users = useSelector(state => state.detailsReducers.user);
-  const loading = useSelector(state => state.detailsReducers.loading);
+  const users = useSelector(state => state.contactReducers.user);
+  const loading = useSelector(state => state.contactReducers.loading);
   
+  //console.log(users[3].name)
   useEffect(() => {
-    dispatch(fetchDetailsData({}));
+    dispatch(fetchContactData({}));
   }, []);
+
+  const renderItem = ({ item }) => (
+    <View  style={{flexDirection: 'row'}} >
+    <Text style={styles.name}>
+        {item.name}
+        {'\n'}
+        {item.phone}
+    </Text>
+</View>
+  );
 
   return (
     <View style={styles.container}>
       {loading ? (<ActivityIndicator style={styles.activityIndicator} size={'large'} color={'black'}/>) : 
-      (<ScrollView style={styles.scrollView} >
+      (
             <View style={{flexDirection: 'row', padding: 10}} >
-                {users.map(user => {
-                    return (
-                    <View  style={{flexDirection: 'row'}} key={user.id}>
-                        <Text style={styles.name}>
-                            {user.name}
-                            {'\n'}
-                            <View>
-                            <Text style={styles.phone}>{user.phone}</Text>
-                            </View>
-                        </Text>
-                    </View>
-                    );
-                })}
-            </View>
-        </ScrollView>)}
+                <FlatList data={users} renderItem={renderItem} keyExtractor={item => item.id}/>
+            </View>)}
     </View>
   );
 };
