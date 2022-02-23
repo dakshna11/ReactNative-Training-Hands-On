@@ -1,39 +1,23 @@
 import React, { useState } from "react";
-import {SafeAreaView, View, Text, StyleSheet, FlatList, Alert} from 'react-native'
-import { TextInput, TouchableOpacity } from "react-native-gesture-handler";
+import {SafeAreaView, View, Text, StyleSheet, FlatList,Alert, TextInput, TouchableOpacity} from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-//import AsyncStorage from '@react-native-async-storage/async-storage'
-import SQLite from 'react-native-sqlite-storage'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
-const db = SQLite.openDatabase(
-    {
-        name: 'MainDB'
-    }
-)
+
+
 const COLORS={primary: '#1f145c', white:'#fff'}
 
 const App = ()=>{
     const [textInput, setTextInput] = useState('')
     const [todos, setTodos] = useState([])
     React.useEffect(() => {
-        createTable()
         getTodosFromDevice()
     },[])
+    React.useEffect(() => {
+        saveTodoToDevice(todos)
+    },[todos])
 
-    const createTable = ()=>{
-        db.transaction((tx)=>{
-            tx.executeSql(
-                "CREATE TABLE IF NOT EXISTS Users (id INTEGER PRIMARY KEY AUTOINCREMENT, Todo VARCHAR(1000))",
-                [],
-                (tx,res)=>{
-                    console.log("Table created successfully")
-                },
-                error =>{
-                    console.log("Error occured")
-                }
-            )
-        })
-    }
+   
 
     const ListItems = ({todo})=>{
         return(
@@ -61,68 +45,33 @@ const App = ()=>{
         )
 
     }
-    const saveTodoToDevice =  ()  =>{
-        // try{
-        //     const stringifyTodos = JSON.stringify(todos)
-        //     await AsyncStorage.setItem('todos', stringifyTodos)
-        // }catch(e){
-        //     console.log(e)
-        // }
+    const saveTodoToDevice = async ()  =>{
         try{
-           
-             db.transaction( (tx)=>{
-                 tx.executeSql(
-                    "INSERT INTO Users (Todo) VALUES (?)",
-                    [textInput]
-                )
-            })
-        } catch(error){
-            console.log(error)
+            const stringifyTodos = JSON.stringify(todos)
+            await AsyncStorage.setItem('todos', stringifyTodos)
+        }catch(e){
+            console.log(e)
         }
-        Alert.alert('calling settodo')
     }
-    const getTodosFromDevice = ()=>{
-        // try{
-        //     const todos = await AsyncStorage.getItem('todos')
-        //     if(todos !=null){
-        //         setTodos(JSON.parse(todos))
-        //     }
-        // } catch(error){
-        //     console.log(error)
-        // }
+       
+    const getTodosFromDevice = async ()=>{
         try{
-            Alert.alert('calling gettodo')
-            db.transaction((tx)=>{
-                tx.executeSql(
-                    "SELECT * FROM Users",
-                    [],
-                    (tx, results) =>{
-                        console.log("Retrieved successfully")
-                        var len = results.rows.length
-
-                        if(len>0){
-                            var res = []
-                            for(let i=0; i<len; i++){
-                                let item = results.rows.item(i)
-                                res.push({id: item.id, Todo: item.Todo})
-                            }
-                            setTodos(res)
-                        }
-
-                    }
-                )
-            })
+            const todos = await AsyncStorage.getItem('todos')
+            if(todos !=null){
+                setTodos(JSON.parse(todos))
+            }
         } catch(error){
             console.log(error)
         }
+       
     }
     const addTodo =()=>{
         if(textInput ==''){
             Alert.alert("Error","Please type something")
         }
         else{
-            saveTodoToDevice()
-        //console.log(textInput)
+           
+        console.log(textInput)
         const newTodo ={
             id: Math.random(),
             task: textInput,
@@ -170,9 +119,9 @@ const App = ()=>{
             />
             <View style={styles.footer}>
                 <View style={styles.inputContainer}>
-                    <TextInput placeholder='Add Todo' value={textInput} onChangeText={(text)=> setTextInput(text)}/>
+                    <TextInput testID = 'text' placeholder='Add Todo' value={textInput} onChangeText={(text)=> setTextInput(text)}/>
                 </View>
-                <TouchableOpacity onPress={addTodo}>
+                <TouchableOpacity onPress={addTodo} testID='add'> 
                     <View style={styles.iconContainer}>
                         <Icon name='add' color={COLORS.white} size={30}/>
                     </View>
