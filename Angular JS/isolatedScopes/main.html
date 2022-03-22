@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Isolated Scopes in Angular</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body ng-app="isolatedScopeApp" ng-controller="app">
+        <p>First variable 'name': {{name}}</p>
+        <p>Second variable 'age': {{age}} </p>
+        <input type="button" value="From Controller" ng-click="alertTheName()">
+        <p>--------------DIRECTIVE------------------</p>
+        <div  my-first-script name="{{name}}" age="age" func="alertTheName()"></div>
+        
+    </body>
+</html>

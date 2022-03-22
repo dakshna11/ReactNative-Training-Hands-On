@@ -1,0 +1,22 @@
+<link rel="stylesheet" href="styles/style.css">
+<div ng-controller="loginController" class="loginContainer">
+    <h1>Hi User!</h1>
+        <p>Please Enter your details to login</p>
+        <form name="loginForm" novalidate>
+            <div>
+                <label>User Name</label><br/>
+                <input type="email" name="userName" ng-required="true" ng-model="login.userName" placeholder="abc@gmail.com" class="userText"/><br/>
+                <div ng-show="loginForm.userName.$touched && loginForm.userName.$invalid">
+                    <small style="color: red;">Enter a valid username</small>
+                </div>
+            </div>
+            <div>
+            <label>Password</label><br/>
+            <input type="password" name="password" ng-required="true" ng-model="login.password" placeholder="Enter password" class="passText"/><br/>
+                <div ng-show="loginForm.password.$touched && loginForm.password.$invalid">
+                    <small style="color: red;">Password mandatory!</small>
+                </div>
+            </div>
+            <input type="submit" value="submit" ng-click="go('/profile')" ng-disabled="loginForm.$invalid" class="submitBtn"/>
+        </form>   
+</div>

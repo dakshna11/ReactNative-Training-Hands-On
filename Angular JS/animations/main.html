@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="animateApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>Animations in Angular</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-animate.min.js"></script>
+        <script src="script.js"></script>
+        <style>
+            .animate.ng-enter, .animate.ng-leave{
+                transition: 500ms linear all;
+            }
+            .animate.ng-leave.ng-leave-active{
+                opacity: 0;
+            }
+            .animate.ng-enter.ng-enter-active{
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body ng-controller="app">
+        <p>Search: <input type="text" ng-model="searchBox" ></p>
+        <ul>
+            <li class="animate" ng-repeat="food in foods | filter: searchBox">
+                {{food}}
+            </li>
+        </ul>
+    </body>
+</html>

@@ -1,0 +1,11 @@
+<link rel="stylesheet" href="styles/style.css">
+
+<h1>Profile Page</h1>
+<div ng-controller="loginController" class="main">
+    <div ng-repeat="user in users" class="profileContainer">
+        <h4>{{user.name}}'s Profile</h4>
+        <p>Name: {{user.name}}</p>
+        <p>ID: {{user.id}}</p>
+        <p>Address: {{user.addr1 }} , {{user.addr2}} , {{user.state}} - {{user.zip}}</p>
+    </div>   
+</div>

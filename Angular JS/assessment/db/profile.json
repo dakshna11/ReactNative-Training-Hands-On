@@ -1,0 +1,26 @@
+{
+    "userInfo": [
+      {
+        "id": "W0001345",
+        "name": "Raja",
+        "addr1": "14 street",
+        "addr2": "Gandhi nagar",
+        "state": "Tamil nadu",
+        "zip": "628902"	
+      },
+ 	{
+        "id": "W0001346",
+        "name": "John",
+        "addr1": "105 street",
+        "addr2": "rthsjgkjar",
+        "state": "Kerala",
+        "zip": "602342"	
+      },{
+        "id": "W0001347",
+        "name": "Shan",
+        "addr1": "25 street",
+        "addr2": "Brindhavan",
+        "state": "Karnataka",
+        "zip": "702542"	
+      }]
+}
